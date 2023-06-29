@@ -45,7 +45,7 @@ a {
   border: 1px solid black;
   width: 250px;
   height: 100px;
-  padding: 4px;
+  padding: 7px;
   overflow: auto;
 }
 
@@ -54,10 +54,11 @@ a {
 }
 
 .info p {
+  margin-bottom: .3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 .tab-content {
   display: none;  
@@ -141,7 +142,7 @@ a {
   z-index: 0;
 }
 
-#tab1-content {
+.tab-content-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -216,5 +217,10 @@ overflow: auto;
   gap: .2rem;
 }
 
+.horizontalContainer{
+  flex-direction: row;
+}
 
-
+#tab2 .info{
+  height: 150px;
+}

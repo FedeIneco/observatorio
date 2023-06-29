@@ -84,9 +84,9 @@
         <div class="dato">
             <h4>TIPO DE CONTRATO</h4>
             <div class="info">
-                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE C</label></p>
-                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE C</label></p>
-                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE S</label></p>
+                <p><input type="radio" name="tipoContrato" id="concesionObras" value="Concesión de obras"><label for="concesionObras">CONCESIÓN DE OBRAS</label></p>
+                <p><input type="radio" name="tipoContrato" id="concesionObrasPublicas" value="Concesión de obras públicas"><label for="concesionObrasPublicas">CONCESIÓN DE OBRAS PÚBLICAS</label></p>
+                <p><input type="radio" name="tipoContrato" id="concesionServicios" value="Concesión de servicios"><label for="concesionServicios">CONCESIÓN DE SERVICIOS</label></p>
                 <p><input type="radio" name="tipoContrato" id="obras" value="OBRAS"><label for="">OBRAS</label></p>
                 <p><input type="radio" name="tipoContrato" id="otros" value="OTROS"><label for="">OTROS</label></p>
                 <p><input type="radio" name="tipoContrato" id="servicios" value="SERVICIOS"><label
@@ -96,27 +96,70 @@
             </div>
         </div>
     </div>
-
     <div class="tabs">
         <div class="tab-container">
+            <!-- <div id="tab4" class="tab">
+                <a href="#tab4">Etc</a>
+                <div class="tab-content">
+                    <h2>Titulo 4</h2>
+                    <p>Lorem ipsum ...</p>
+                </div>
+            </div>
             <div id="tab3" class="tab">
                 <a href="#tab3">Etc</a>
                 <div class="tab-content">
                     <h2>Titulo 3</h2>
                     <p>Lorem ipsum ...</p>
                 </div>
-            </div>
+            </div> -->
             <div id="tab2" class="tab">
                 <a href="#tab2">Tipología</a>
                 <div class="tab-content">
-                    <div class="datosIzq"></div>
-                    <div class="datosDch"></div>
+                    <div class="tab-content-grid">
+                        <div class="datosIzq horizontalContainer">
+                            <span>CATEGORÍA EDIF</span>
+                            <div class="info">
+                                <p><input type="radio" name="categoriaEdif" value="Administrativo"
+                                        id="administrativo"><label for="administrativo">Administrativo</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Sanitario" id="sanitario"><label
+                                        for="sanitario">Sanitario</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Viviendas" id="viviendas"><label
+                                        for="viviendas">Viviendas</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Cultural" id="cultural"><label
+                                        for="cultural">Cultural</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Educación" id="educacion"><label
+                                        for="educacion">Educación</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Transporte" id="transporte"><label
+                                        for="transporte">Transporte</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Eclesiástico"
+                                        id="eclesiastico"><label for="eclesiastico">Eclesiástico</label></p>
+                                <p><input type="radio" name="categoriaEdif" value="Empresarial/Comercial"
+                                        id="empresarialComercial"><label
+                                        for="empresarialComercial">Empresarial/Comercial</label></p>
+                            </div>
+                        </div>
+                        <div class="datosDch">
+                            <span>CATEGORÍA INFRA</span>
+                            <div class="info">
+                                <p><input type="radio" name="infra" value="Carreteras" id="carreteras"><label
+                                        for="carreteras">CARRETERAS</label></p>
+                                <p><input type="radio" name="infra" value="Ferrocarril" id="ferrocarril"><label
+                                        for="ferrocarril">FERROCARRIL</label></p>
+                                <p><input type="radio" name="infra" value="Marítimo" id="maritimo"><label
+                                        for="maritimo">MARÍTIMO</label></p>
+                                <p><input type="radio" name="infra" value="Sanitario" id="sanitarioInfra"><label
+                                        for=sanitarioInfra"">SANITARIO</label></p>
+                                <p><input type="radio" name="infra" value="Otros" id="otros"><label
+                                        for="otros">OTROS</label></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="tab1" class="tab">
                 <a href="#tab1">Publicación</a>
                 <div class="tab-content">
-                    <div id="tab1-content">
+                    <div class="tab-content-grid">
                         <div class="datosIzq">
                             <div class="referencia-fechaPubli">
                                 <div class="dataContainer"><span>Referencia</span>
@@ -132,38 +175,70 @@
                                 </div>
                             </div>
                             <div class="ccaa-admon">
-                                <div><span>CCAA</span><div class="ccaa-admon-data">
-                                    <p><input type="radio" name="ccaa" value="Andalucía" id="andalucia"><label for="andalucia">Andalucía</label></p>
-                                    <p><input type="radio" name="ccaa" value="Aragón" id="aragon"><label for="aragon">Aragón</label></p>
-                                    <p><input type="radio" name="ccaa" value="Islas Baleares" id="baleares"><label for="baleares">Islas Baleares</label></p>
-                                    <p><input type="radio" name="ccaa" value="Canarias" id="canarias"><label for="canarias">Canarias</label></p>
-                                    <p><input type="radio" name="ccaa" value="Cantabria" id="cantabria"><label for="cantabria">Cantabria</label></p>
-                                    <p><input type="radio" name="ccaa" value="Castilla-La Mancha" id="laMancha"><label for="laMancha">Castilla-La Mancha</label></p>
-                                    <p><input type="radio" name="ccaa" value="Castilla y León" id="cLeon"><label for="cLeon">Castilla y León</label></p>
-                                    <p><input type="radio" name="ccaa" value="Cataluña" id="catalunna"><label for="catalunna">Cataluña</label></p>
-                                    <p><input type="radio" name="ccaa" value="Comunidad de Madrid" id="madrid"><label for="madrid">Comunidad de Madrid</label></p>
-                                    <p><input type="radio" name="ccaa" value="Comunidad Foral de Navarra" id=""><label for="">Comunidad Foral de Navarra</label></p>
-                                    <p><input type="radio" name="ccaa" value="Comunidad Valenciana" id="valencia"><label for="valencia">Comunidad Valenciana</label></p>
-                                    <p><input type="radio" name="ccaa" value="Extremadura" id="extremadura"><label for="extremadura">Extremadura</label></p>
-                                    <p><input type="radio" name="ccaa" value="Galicia" id="galicia"><label for="galicia">Galicia</label></p>
-                                    <p><input type="radio" name="ccaa" value="País Vasco" id="pVasco"><label for="pVasco">País Vasco</label></p>
-                                    <p><input type="radio" name="ccaa" value="Principado de Asturias" id="asturias"><label for="asturias"> Principado de Asturias</label></p>
-                                    <p><input type="radio" name="ccaa" value="Región de Murcia" id="murcia"><label for="murcia">Región de Murcia</label></p>
-                                    <p><input type="radio" name="ccaa" value="La Rioja." id="rioja"><label for="rioja">La Rioja.</label></p>
-                                </div></div>
-                                <div><span>TIPO DE ADMÓN</span><div class="ccaa-admon-data">
-                                    <p><input type="radio" name="ccaa" value="Estatal" id="estatal"><label for="estatal">Estatal</label></p>
-                                    <p><input type="radio" name="ccaa" value="Autonómico" id="autonomico"><label for="autonomico">Autonómico</label></p>
-                                    <p><input type="radio" name="ccaa" value="Local" id="local"><label for="local">Local</label></p>
-                                    <p><input type="radio" name="ccaa" value="Diputaciones Provinciales" id="diptacionesProvinciales"><label for="diptacionesProvinciales">Diputaciones Provinciales</label></p>
-                                </div></div>
+                                <div><span>CCAA</span>
+                                    <div class="ccaa-admon-data">
+                                        <p><input type="radio" name="ccaa" value="Andalucía" id="andalucia"><label
+                                                for="andalucia">Andalucía</label></p>
+                                        <p><input type="radio" name="ccaa" value="Aragón" id="aragon"><label
+                                                for="aragon">Aragón</label></p>
+                                        <p><input type="radio" name="ccaa" value="Islas Baleares" id="baleares"><label
+                                                for="baleares">Islas Baleares</label></p>
+                                        <p><input type="radio" name="ccaa" value="Canarias" id="canarias"><label
+                                                for="canarias">Canarias</label></p>
+                                        <p><input type="radio" name="ccaa" value="Cantabria" id="cantabria"><label
+                                                for="cantabria">Cantabria</label></p>
+                                        <p><input type="radio" name="ccaa" value="Castilla-La Mancha"
+                                                id="laMancha"><label for="laMancha">Castilla-La Mancha</label></p>
+                                        <p><input type="radio" name="ccaa" value="Castilla y León" id="cLeon"><label
+                                                for="cLeon">Castilla y León</label></p>
+                                        <p><input type="radio" name="ccaa" value="Cataluña" id="catalunna"><label
+                                                for="catalunna">Cataluña</label></p>
+                                        <p><input type="radio" name="ccaa" value="Comunidad de Madrid"
+                                                id="madrid"><label for="madrid">Comunidad de Madrid</label></p>
+                                        <p><input type="radio" name="ccaa" value="Comunidad Foral de Navarra"
+                                                id=""><label for="">Comunidad Foral de Navarra</label></p>
+                                        <p><input type="radio" name="ccaa" value="Comunidad Valenciana"
+                                                id="valencia"><label for="valencia">Comunidad Valenciana</label></p>
+                                        <p><input type="radio" name="ccaa" value="Extremadura" id="extremadura"><label
+                                                for="extremadura">Extremadura</label></p>
+                                        <p><input type="radio" name="ccaa" value="Galicia" id="galicia"><label
+                                                for="galicia">Galicia</label></p>
+                                        <p><input type="radio" name="ccaa" value="País Vasco" id="pVasco"><label
+                                                for="pVasco">País Vasco</label></p>
+                                        <p><input type="radio" name="ccaa" value="Principado de Asturias"
+                                                id="asturias"><label for="asturias"> Principado de Asturias</label></p>
+                                        <p><input type="radio" name="ccaa" value="Región de Murcia" id="murcia"><label
+                                                for="murcia">Región de Murcia</label></p>
+                                        <p><input type="radio" name="ccaa" value="La Rioja." id="rioja"><label
+                                                for="rioja">La Rioja</label></p>
+                                        <p><input type="radio" name="ccaa" value="Ceuta" id="ceuta"><label
+                                                for="ceuta">Ceuta</label></p>
+                                        <p><input type="radio" name="ccaa" value="Melilla" id="melilla"><label
+                                                for="melilla">Melilla</label></p>
+                                    </div>
+                                </div>
+                                <div><span>TIPO DE ADMÓN</span>
+                                    <div class="ccaa-admon-data">
+                                        <p><input type="radio" name="ccaa" value="Estatal" id="estatal"><label
+                                                for="estatal">Estatal</label></p>
+                                        <p><input type="radio" name="ccaa" value="Autonómico" id="autonomico"><label
+                                                for="autonomico">Autonómico</label></p>
+                                        <p><input type="radio" name="ccaa" value="Local" id="local"><label
+                                                for="local">Local</label></p>
+                                        <p><input type="radio" name="ccaa" value="Diputaciones Provinciales"
+                                                id="diptacionesProvinciales"><label
+                                                for="diptacionesProvinciales">Diputaciones Provinciales</label></p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="plazo">
-                                <span>PLAZO (meses)</span><p class="data"></p>
+                                <span>PLAZO (meses)</span>
+                                <p class="data"></p>
                             </div>
                             <div class="presupuesto">
-                                <span>Presupuesto Base de Licitacion/ Valor estimado del contrarto</span><p class="data"></p><span>Valores sin IVA</span>
-                            </div>                            
+                                <span>Presupuesto Base de Licitacion/ Valor estimado del contrarto</span>
+                                <p class="data"></p><span>Valores sin IVA</span>
+                            </div>
                         </div>
                         <div class="datosDch">
                             <span>MINISTERIO</span>
