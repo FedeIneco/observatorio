@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Observatorio</title>
+</head>
+
+<body>
+    <h1>Observatorio de Licitaciones BIM</h1>
+    <div class="mainContainer">
+        <div class="dato" id="doubleData">
+            <div id="idLicContainer">
+                <h4>Id</h4>
+                <div id="idLicitacion">
+                </div>
+            </div>
+            <div id="bimContainer" class="doubleData">
+                <h4>Revisión BIM</h4>
+                <div id="bim" class="info">
+                    <p><input type="radio" name="bimSi" id="bimSi"><label for="bimSi">Sí</label></p>
+                    <p><input type="radio" name="bimNo" id="bimNo"><label for="bimNo">No</label></p>
+                </div>
+            </div>
+        </div>
+        <div class="dato">
+            <h4>TITULO</h4>
+            <div class="info" id="tituloLicitacion">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, veniam fuga tempora ut omnis
+                    corporis asperiores qui, dolorem placeat velit debitis pariatur sed voluptatem nostrum cumque.
+                    Quisquam cum quis blanditiis?</p>
+            </div>
+        </div>
+        <div class="dato">
+            <h4>SECTOR</h4>
+            <div class="info" id="sectorLicitacion">
+                <p><input type="radio" name="sectorLicitacion" id="edificacion" value="edificacion"> <label
+                        for="edificacion">Edificación</label></p>
+                <p><input type="radio" name="sectorLicitacion" id="infraestructura" value="infraestructura"> <label
+                        for="infraestructura">Infraestructura</label></p>
+            </div>
+        </div>
+        <div class="dato">
+            <h4>FASE</h4>
+            <div class="info">
+                <p><input type="checkbox" name="consultoriaEstudios" id="consultoriaEstudios"> <label
+                        for="consultoriaEstudios">Consultoría/Estudios</label></p>
+                <p><input type="checkbox" name="disenno" id="disenno"> <label for="disenno">Diseño</label></p>
+                <p><input type="checkbox" name="construccion" id="construccion"><label
+                        for="construccion">Construcción</label></p>
+                <p><input type="checkbox" name="explotacionMantenimiento" id="explotacionMantenimiento"><label
+                        for="explotacionMantenimiento">Explotación y Mantenimiento</label></p>
+
+            </div>
+        </div>
+        <div class="dato">
+            <h4>ALCANCE DEL CONTRATO</h4>
+            <div class="info">
+                <p><input type="checkbox" name="implantacion" id="implantacion"><label
+                        for="implantacion">Implantación</label></p>
+                <p><input type="checkbox" name="anteproyecto" id="anteproyecto"><label
+                        for="anteproyecto">Anteproyecto</label></p>
+                <p><input type="checkbox" name="pBasico" id="pBasico"><label for="pBasico">P.Básico</label></p>
+                <p><input type="checkbox" name="pConstructivo" id="pConstructivo"><label
+                        for="pConstructivo">P.Constructivo</label></p>
+                <p><input type="checkbox" name="esSegSalud" id="esSegSalud"><label for="esSegSalud">Estudio de Seguridad
+                        y Salud</label></p>
+                <p><input type="checkbox" name="direccionObraAT" id="direccionObraAT"><label
+                        for="direccionObraAT">Dirección de Obra/AT</label></p>
+            </div>
+        </div>
+        <div class="dato">
+            <h4>TIPO</h4>
+            <div class="info" id="tipoLicitacion">
+                <p><input type="radio" name="tipoLicitacion" id="obraNueva" value="OBRA NUEVA"> <label
+                        for="obraNueva">Obra Nueva</label></p>
+                <p><input type="radio" name="tipoLicitacion" id="rehabilitacion" value="Rehabilitación"> <label
+                        for="rehabilitacion">Rehabilitación</label></p>
+            </div>
+        </div>
+        <div class="dato">
+            <h4>TIPO DE CONTRATO</h4>
+            <div class="info">
+                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE C</label></p>
+                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE C</label></p>
+                <p><input type="radio" name="tipoContrato" id="" value=""><label for="">CONCESIÓN DE S</label></p>
+                <p><input type="radio" name="tipoContrato" id="obras" value="OBRAS"><label for="">OBRAS</label></p>
+                <p><input type="radio" name="tipoContrato" id="otros" value="OTROS"><label for="">OTROS</label></p>
+                <p><input type="radio" name="tipoContrato" id="servicios" value="SERVICIOS"><label
+                        for="">SERVICIOS</label></p>
+                <p><input type="radio" name="tipoContrato" id="suministros" value="SUMINISTROS"><label
+                        for="">SUMINISTROS</label></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-container">
+            <div id="tab3" class="tab">
+                <a href="#tab3">Etc</a>
+                <div class="tab-content">
+                    <h2>Titulo 3</h2>
+                    <p>Lorem ipsum ...</p>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <a href="#tab2">Tipología</a>
+                <div class="tab-content">
+                    <div class="datosIzq"></div>
+                    <div class="datosDch"></div>
+                </div>
+            </div>
+            <div id="tab1" class="tab">
+                <a href="#tab1">Publicación</a>
+                <div class="tab-content">
+                    <div id="tab1-content">
+                        <div class="datosIzq">
+                            <div class="referencia-fechaPubli">
+                                <div class="dataContainer"><span>Referencia</span>
+                                    <p class="data"></p>
+                                </div>
+                                <div class="dataContainer"><span>Fecha de Publicación</span>
+                                    <p class="data"></p>
+                                </div>
+                            </div>
+                            <div class="org-Promotor">
+                                <div class="dataContainer" id="organismo"><span>ORGANISMO /PROMOTOR</span>
+                                    <p class="data"></p>
+                                </div>
+                            </div>
+                            <div class="ccaa-admon">
+                                <div><span>CCAA</span><div class="ccaa-admon-data">
+                                    <p><input type="radio" name="ccaa" value="Andalucía" id="andalucia"><label for="andalucia">Andalucía</label></p>
+                                    <p><input type="radio" name="ccaa" value="Aragón" id="aragon"><label for="aragon">Aragón</label></p>
+                                    <p><input type="radio" name="ccaa" value="Islas Baleares" id="baleares"><label for="baleares">Islas Baleares</label></p>
+                                    <p><input type="radio" name="ccaa" value="Canarias" id="canarias"><label for="canarias">Canarias</label></p>
+                                    <p><input type="radio" name="ccaa" value="Cantabria" id="cantabria"><label for="cantabria">Cantabria</label></p>
+                                    <p><input type="radio" name="ccaa" value="Castilla-La Mancha" id="laMancha"><label for="laMancha">Castilla-La Mancha</label></p>
+                                    <p><input type="radio" name="ccaa" value="Castilla y León" id="cLeon"><label for="cLeon">Castilla y León</label></p>
+                                    <p><input type="radio" name="ccaa" value="Cataluña" id="catalunna"><label for="catalunna">Cataluña</label></p>
+                                    <p><input type="radio" name="ccaa" value="Comunidad de Madrid" id="madrid"><label for="madrid">Comunidad de Madrid</label></p>
+                                    <p><input type="radio" name="ccaa" value="Comunidad Foral de Navarra" id=""><label for="">Comunidad Foral de Navarra</label></p>
+                                    <p><input type="radio" name="ccaa" value="Comunidad Valenciana" id="valencia"><label for="valencia">Comunidad Valenciana</label></p>
+                                    <p><input type="radio" name="ccaa" value="Extremadura" id="extremadura"><label for="extremadura">Extremadura</label></p>
+                                    <p><input type="radio" name="ccaa" value="Galicia" id="galicia"><label for="galicia">Galicia</label></p>
+                                    <p><input type="radio" name="ccaa" value="País Vasco" id="pVasco"><label for="pVasco">País Vasco</label></p>
+                                    <p><input type="radio" name="ccaa" value="Principado de Asturias" id="asturias"><label for="asturias"> Principado de Asturias</label></p>
+                                    <p><input type="radio" name="ccaa" value="Región de Murcia" id="murcia"><label for="murcia">Región de Murcia</label></p>
+                                    <p><input type="radio" name="ccaa" value="La Rioja." id="rioja"><label for="rioja">La Rioja.</label></p>
+                                </div></div>
+                                <div><span>TIPO DE ADMÓN</span><div class="ccaa-admon-data">
+                                    <p><input type="radio" name="ccaa" value="Estatal" id="estatal"><label for="estatal">Estatal</label></p>
+                                    <p><input type="radio" name="ccaa" value="Autonómico" id="autonomico"><label for="autonomico">Autonómico</label></p>
+                                    <p><input type="radio" name="ccaa" value="Local" id="local"><label for="local">Local</label></p>
+                                    <p><input type="radio" name="ccaa" value="Diputaciones Provinciales" id="diptacionesProvinciales"><label for="diptacionesProvinciales">Diputaciones Provinciales</label></p>
+                                </div></div>
+                            </div>
+                            <div class="plazo">
+                                <span>PLAZO (meses)</span><p class="data"></p>
+                            </div>
+                            <div class="presupuesto">
+                                <span>Presupuesto Base de Licitacion/ Valor estimado del contrarto</span><p class="data"></p><span>Valores sin IVA</span>
+                            </div>                            
+                        </div>
+                        <div class="datosDch">
+                            <span>MINISTERIO</span>
+                            <div class="info" id="ministerios">
+                                <p><input type="radio" name="ministerios" value="Ministerioe de "
+                                        id="mTransMovAG"><label for="mTransMovAG">Ministerio de Transportes, Movilidad y
+                                        Agenda Urbana</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de "
+                                        id="mAExterioresUECoop"><label for="mAExterioresUECoop">Ministerio de Asuntos
+                                        Exteriores, Unión Europea y Cooperación</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id="justicia"><label
+                                        for="justicia">Ministerio de Justicia</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id="defensa"><label
+                                        for="defensa">Ministerio de Defensa</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de Hacienda</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio del Interior</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de Educación y Formación Profesional</label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                                <p><input type="radio" name="ministerios" value="Ministerioe de " id=""><label
+                                        for="">Ministerio de </label></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
