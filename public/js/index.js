@@ -44,6 +44,12 @@ document
   });
 
 function loadTable(data) {
+  const opciones = {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  };
+
   const table = document.querySelector("table tbody");
 
   if (data.length === 0) {
@@ -61,20 +67,30 @@ function loadTable(data) {
     valorEstimadoContrato,
     organoContratacion,
   }) {
+    const numeroFormateado = valorEstimadoContrato.toLocaleString(
+      "es",
+      opciones
+    );
+    const fechaOriginal = new Date(PrimeraPublicacion);
+const unDiaEnMilisegundos = 24 * 60 * 60 * 1000; 
+const fechaSumada = new Date(fechaOriginal.getTime() + unDiaEnMilisegundos);
+const dia = fechaOriginal.getDate().toString().padStart(2, "0");
+const mes = (fechaOriginal.getMonth() + 1).toString().padStart(2, "0");
+const anio = fechaOriginal.getFullYear();
+const fechaFormateada = `${dia}/${mes}/${anio}`;
     tableHtml += "<tr>";
     tableHtml += `<td>${id}</td>`;
-    tableHtml += `<td>${
-      new Date(PrimeraPublicacion).toISOString().split("T")[0]
-    }</td>`;
+    tableHtml += `<td>${fechaFormateada}</td>`;
     tableHtml += `<td>${numeroExp}</td>`;
     tableHtml += `<td>${status}</td>`;
     tableHtml += `<td>${objetoContrato}</td>`;
     tableHtml += `<td>${tipoContrato}</td>`;
-    tableHtml += `<td>${valorEstimadoContrato}</td>`;
+    tableHtml += `<td>${numeroFormateado} €</td>`;
     tableHtml += `<td>${organoContratacion}</td>`;
     tableHtml += `<td><button class="editar-licitacion" data-id=${id}>Editar</button></td>`;
     tableHtml += `<td><button class="borrar-licitacion" data-id=${id}>Borrar</button></td>`;
     tableHtml += "</tr>";
+    console.log(PrimeraPublicacion);
   });
 
   table.innerHTML = tableHtml;

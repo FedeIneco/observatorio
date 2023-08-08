@@ -5,16 +5,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/styles.css">
-        <title>Observatorio</title>
-
+        <title>Detalles</title>
 </head>
 
 <body>
-        
-        <!-- Contenido de tu documento HTML -->
-
-
         <!-- <div class="modal-overlay">
                 <div class="modal-container">
                         <div class="tabs">
@@ -75,8 +71,8 @@
                         </div>
                 </div>
         </div> -->
-        <!-- <h1>Observatorio de Licitaciones BIM</h1> -->
-        <div id="inicio"><a href="index.html" ><i class="fa-solid fa-house"></i>Volver a Inicio</a></div>
+        <div class="titulo"><h1>Detalles Licitación</h1></div>
+        <div id="inicio"><a href="index.html"><i class="fa-solid fa-house"></i>Volver a Inicio</a></div>
         <div class="mainContainer">
                 <div class="dato" id="doubleData">
                         <div id="idLicContainer">
@@ -156,7 +152,7 @@
 
                 <div class="dato">
                         <h4>TIPO DE CONTRATO</h4>
-                        <div class="info">                                
+                        <div class="info" id="contratos">
                                 <p><input type="radio" name="tipoContrato" id="concesionObras"
                                                 value="Concesión de Obras"><label for="concesionObras">CONCESIÓN DE
                                                 OBRAS</label></p>
@@ -168,7 +164,7 @@
                                                 DE SERVICIOS</label></p>
                                 <p><input type="radio" name="tipoContrato" id="Obras" value="Obras"><label
                                                 for="">OBRAS</label></p>
-                                <p><input type="radio" name="tipoContrato" id="otros" value="OTROS"><label
+                                <p><input type="radio" name="tipoContrato" id="otros" value="Otros" checked><label
                                                 for="">OTROS</label></p>
                                 <p><input type="radio" name="tipoContrato" id="servicios" value="Servicios"><label
                                                 for="">SERVICIOS</label></p>
@@ -431,10 +427,12 @@
                                                         <div class="presupuesto">
                                                                 <span>Presupuesto Base de Licitacion/ Valor estimado del
                                                                         contrarto</span>
-                                                                <p class="data" id="sinIva"> </p><span>Valores sin IVA</span>
+                                                                <p class="data" id="sinIva"> </p><span>Valores sin
+                                                                        IVA</span>
                                                         </div>
                                                         <div class="link">
-                                                                <span>Link</span> <p class="data" id="linkLic"></p>
+                                                                <span>Link</span>
+                                                                <p class="data" id="linkLic"></p>
                                                         </div>
                                                 </div>
                                                 <div class="datosDch">
@@ -477,55 +475,80 @@
                                                                                 Formación Profesional</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Trabajo y Economía
+                                                                                Social</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Industria, Comercio
+                                                                                y Turismo</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Agricultura, Pesca
+                                                                                y Alimentación</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de la Presidencia,
+                                                                                Relaciones con las Cortes y Memoria
+                                                                                Democrática</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Política
+                                                                                Territorial y Función Pública</label>
+                                                                </p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio para la Transición
+                                                                                Ecológica y el Reto Demográfico</label>
+                                                                </p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Cultura y
+                                                                                Deporte</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Asuntos Económicos
+                                                                                y Transformación Digital</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Sanidad</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Derechos Sociales y
+                                                                                Agenda 2030</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Ciencia e
+                                                                                Innovación</label></p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Igualdad</label>
+                                                                </p>
                                                                 <p><input type="radio" name="ministerios"
                                                                                 value="Ministerioe de " id=""><label
-                                                                                for="">Ministerio de </label></p>
+                                                                                for="">Ministerio de Consumo</label></p>
+                                                                <p><input type="radio" name="ministerios"
+                                                                                value="Ministerioe de " id=""><label
+                                                                                for="">Ministerio de Inclusión,
+                                                                                Seguridad Social y Migraciones</label>
+                                                                </p>
+                                                                <p><input type="radio" name="ministerios"
+                                                                                value="Ministerioe de " id=""><label
+                                                                                for="">Ministerio de
+                                                                                Universidades</label></p>
                                                         </div>
                                                 </div>
                                         </div>
+                                        <button class="save" id="saveButton">Guardar</button>
                                 </div>
-                                <button class="save" id="saveButton">Guardar</button>
                         </div>
                 </div>
         </div>
-        </div>
 </body>
 <!-- <script src="connect.js"></script> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="js/detalles.js"></script>
+
 </html>

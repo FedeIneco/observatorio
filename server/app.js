@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//Read
+//GetAllData
+//TODO: Revisar para no perder búsqueda con la paginación
+//TODO: Agregar valor de búsqueda para mantenerlo
 app.get("/getAll", (request, response) => {
   const db = dbService.getDbServiceInstance();
   const page = request.query.page || 1;  
@@ -19,7 +21,7 @@ app.get("/getAll", (request, response) => {
     .catch((err) => console.log(err));
 });
 
-//Get Data
+//GetData
 app.get("/getDetails/:id", async (request, response) => {
   const elementId = request.params.id;   
   try {

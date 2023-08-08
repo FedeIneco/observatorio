@@ -31,25 +31,29 @@ async function cargarDetalles() {
     maximumFractionDigits: 2,
   };
   if (response.ok) {
+    const fechaOriginal = new Date(datos.PrimeraPublicacion);
+    const unDiaEnMilisegundos = 24 * 60 * 60 * 1000; 
+    const fechaSumada = new Date(fechaOriginal.getTime() + unDiaEnMilisegundos);
+    const dia = fechaOriginal.getDate().toString().padStart(2, "0");
+    const mes = (fechaOriginal.getMonth() + 1).toString().padStart(2, "0");
+    const anio = fechaOriginal.getFullYear();
+    const fechaFormateada = `${dia}/${mes}/${anio}`;
     saveButton.dataset.id = datos.id;
-    const dateOnly = new Date(datos.PrimeraPublicacion)
-      .toISOString()
-      .split("T")[0];
     const numeroFormateado = datos.presupuestoSinTax.toLocaleString(
       "es",
       opciones
     );
     idContainer.innerHTML = `<p>${datos.id}</p>`;
-    dataContainer.innerHTML = `${dateOnly}`;
+    dataContainer.innerHTML = `${fechaFormateada}`;
     tituloLicitacion.innerHTML = datos.objetoContrato;
     referencia.innerText = datos.numeroExp;
     promotor.innerHTML = datos.organoContratacion;
     sinIva.innerText = numeroFormateado + " €";
-    if (datos.tipoContrato) {
+    if (datos.tipoContrato) {      
       for (const contrato of contratos) {
-        if (datos.tipoContrato === contrato.value) contrato.checked = true;
-        else {
-          if (contrato.value === "Otros") contrato.checked = true;
+        if (datos.tipoContrato === contrato.value) {
+          contrato.checked = true;          
+          break;
         }
       }
     }

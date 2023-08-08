@@ -282,7 +282,9 @@ ul, li{
 .datosIzq span {
   width: 150px;
 }
-
+.link span{
+  min-width: 150px;
+}
 .org-Promotor p {
   width: 80%;
 }
@@ -297,7 +299,7 @@ ul, li{
   min-height: 20px;
   min-width: 165px;
   padding: .3rem;
-  border: 1px solid black;
+  border: 1px solid black;  
 }
 
 .ccaa-admon-data {
@@ -387,7 +389,10 @@ th, td {
   align-items: center;
   gap: .5rem;
   font-size: 1.5rem;
-  margin: 1rem;  
+  margin: 1rem;
+}
+.titulo{
+  margin: 1rem;
 }
 
 .buttons{  
@@ -412,6 +417,7 @@ th, td {
 .button:hover{
   box-shadow: 3px 3px #3e4bff;
 }
+
 .camposBuscar{
   margin-top: 1rem;
   margin-left: 2rem;
@@ -423,4 +429,7 @@ th, td {
 .camposBuscar .buscador{
   padding: .2rem .5rem;
   min-width: 300px;
+}
+#contratos{
+  font-size: .9rem;
 }
