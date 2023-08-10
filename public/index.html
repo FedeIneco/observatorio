@@ -6,36 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Licitaciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Licitaciones del Estado</title>
 </head>
 
 <body>
-    <h1>Listado de licitaciones</h1>
-<div class="camposBuscar">
-    <input type="text" name="buscar" id="buscador" class="buscador" placeholder="Buscar por Órgano de Contratación"><button id="buscar" class="button">Buscar</button>
-</div>
-    <table id="table">
-        <thead>
-            <th>ID</th>
-            <th>Primera publicación</th>
-            <th>Numero Expediente</th>
-            <th>Estado</th>
-            <th>Objeto de Contrato</th>
-            <th>Tipo de Contrato</th>
-            <th>Valor estimado</th>
-            <th>Órgano de Contratación</th>
-            <th>Editar</th>
-            <th>Borrar</th>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <div class="buttons">
-        <button class="button" id="prev">Anterior</button>
-        <button class="button" id="next">Siguiente</button>
+    <div class="main">
+        <div class="title">
+            <h1>Portal de Licitaciones INECO</h1>
+            <div class="logo">
+                <img src="./img/Logo-Ineco.png" alt="Logo INECO">
+            </div>
+        </div>
+        <div class="mainCointainer">
+            <div id="ultimasLicitaciones">
+                <i class="fa-regular fa-newspaper iconoMenu"></i>
+                <p>Licitaciones sin revisar</p>
+            </div>
+            <div id="busqueda">
+                <i class="fa-solid fa-filter iconoMenu"></i>
+                <p>Búsqueda de licitaciones</p>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/index.js"></script>
 </body>
+<script>
+    const busquedaContainer = document.getElementById("busqueda");
+    const ultimasLicitacionesContainer = document.getElementById("ultimasLicitaciones");
+
+    busquedaContainer.addEventListener("click", () => {
+        window.location.href = "filtros.html";
+    });
+
+    ultimasLicitacionesContainer.addEventListener("click", () => {
+        window.location.href = "listado.html";
+    });
+</script>
 
 </html>

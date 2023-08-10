@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Licitaciones</title>
+</head>
+
+<body>
+    <h1 class="title">Listado de licitaciones por revisar</h1>
+<div class="camposBuscar">
+    <input type="text" name="buscar" id="buscador" class="buscador" placeholder="Buscar por Órgano de Contratación"><button id="buscar" class="button">Buscar</button>
+</div>
+    <table id="table">
+        <thead>
+            <th>ID</th>
+            <th>Primera publicación</th>
+            <th>Numero Expediente</th>
+            <th>Estado</th>
+            <th>Objeto de Contrato</th>
+            <th>Tipo de Contrato</th>
+            <th>Valor estimado</th>
+            <th>Órgano de Contratación</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="buttons">
+        <button class="button" id="prev">Anterior</button>
+        <button class="button" id="next">Siguiente</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/listado.js"></script>
+</body>
+
+</html>

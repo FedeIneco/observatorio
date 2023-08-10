@@ -21,6 +21,7 @@ connection.connect((err) => {
 });
 
 class DbService {
+  //TODO: HACER FILTROS.
   static getDbServiceInstance() {
     return instance ? instance : new DbService();
   }
@@ -31,7 +32,7 @@ class DbService {
       const offset = Math.max(0, (page - 1) * pageSize);
       const response = await new Promise((resolve, reject) => {
         const query =
-          "SELECT * FROM `observatorio` ORDER BY `fechaExtraccion` DESC LIMIT ? OFFSET ?";
+          "SELECT * FROM `observatorio` WHERE posibleBim = 'posible BIM' ORDER BY `fechaExtraccion` DESC LIMIT ? OFFSET ?";
         connection.query(query, [pageSize, offset], (err, results) => {
           if (err) reject(new Error(err.message));
           resolve(results);

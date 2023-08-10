@@ -9,11 +9,11 @@ obtenerParametroId();
 
 async function cargarDetalles() {
   const elementId = obtenerParametroId();
-  
+
   const response = await fetch(`http://localhost:5000/getDetails/${elementId}`);
   const data = await response.json();
   const datos = data[0];
-  
+
   const idContainer = document.getElementById("idLicitacion");
   const dataContainer = document.getElementById("primeraPubli");
   const tituloLicitacion = document.getElementById("tituloLicitacion");
@@ -32,8 +32,6 @@ async function cargarDetalles() {
   };
   if (response.ok) {
     const fechaOriginal = new Date(datos.PrimeraPublicacion);
-    const unDiaEnMilisegundos = 24 * 60 * 60 * 1000; 
-    const fechaSumada = new Date(fechaOriginal.getTime() + unDiaEnMilisegundos);
     const dia = fechaOriginal.getDate().toString().padStart(2, "0");
     const mes = (fechaOriginal.getMonth() + 1).toString().padStart(2, "0");
     const anio = fechaOriginal.getFullYear();
@@ -49,23 +47,22 @@ async function cargarDetalles() {
     referencia.innerText = datos.numeroExp;
     promotor.innerHTML = datos.organoContratacion;
     sinIva.innerText = numeroFormateado + " €";
-    if (datos.tipoContrato) {      
+    if (datos.tipoContrato) {
       for (const contrato of contratos) {
         if (datos.tipoContrato === contrato.value) {
-          contrato.checked = true;          
+          contrato.checked = true;
           break;
         }
       }
     }
-    const bim = datos.posibleBIM;    
-    if (bim.includes("posible")) {
-      bimSi.checked = true;
-    } else {
-      bimNo.checked = true;
-    }
+    // const bim = datos.posibleBIM;
+    // if (bim.includes("posible")) {
+    //   bimSi.checked = true;
+    // } else {
+    //   bimNo.checked = true;
+    // }
     linkLic.innerHTML = `<a href= "${datos.urlLicitacion}">${datos.urlLicitacion}</a>`;
   } else {
-    // Si el elemento no se encuentra, muestra un mensaje de error
     Swal.fire({
       title: "Error!",
       text: "Algo salió mal",
@@ -78,29 +75,87 @@ async function cargarDetalles() {
 saveButton.onclick = function () {
   //TODO: GUARDAR DATOS CUANDO BD ESTÉ COMPLETA
   const estado = "AAA";
-   fetch('http://localhost:5000/update', {
-    method: 'PATCH',
+  const bim = document.getElementsByName("bim");
+  const sectorLicitacion = document.getElementsByName("sectorLicitacion");
+  const tipoLicitacion = document.getElementsByName("tipoLicitacion");
+  const tipoContrato = document.getElementsByName("tipoContrato");
+  const ccaa = document.getElementsByName("ccaa");
+  const admon = document.getElementsByName("admon");
+  const ministerios = document.getElementsByName("ministerios");
+  const categoriaEdif = document.getElementsByName("categoriaEdif");
+  const infra = document.getElementsByName("infra");
+  const fase = document.querySelectorAll('input[type="checkbox"][name^="fase"]');
+  const alcanceContrato = document.querySelectorAll('input[type="checkbox"][name^="contrato"]');
+  
+  
+  console.log(checkedRadioButton(bim));
+  console.log(checkedRadioButton(sectorLicitacion));
+  console.log(checkedRadioButton(tipoLicitacion));
+  console.log(checkedRadioButton(tipoContrato));
+  console.log(checkedRadioButton(ccaa));
+  console.log(checkedRadioButton(admon));
+  console.log(checkedRadioButton(ministerios));
+  console.log(checkedRadioButton(categoriaEdif));
+  console.log(checkedRadioButton(infra));
+  console.log(checkedCheckoxes(fase));
+  console.log(checkedCheckoxes(alcanceContrato));
+  
+
+
+  fetch("http://localhost:5000/update", {
+    method: "PATCH",
     headers: {
-      'Content-type': 'application/json'
+      "Content-type": "application/json",
     },
     body: JSON.stringify({
       id: saveButton.dataset.id,
-      status: estado
-    })
-  })
-  .then(response => {    
+      status: estado,
+    }),
+  }).then((response) => {
     response.json();
-    if(response.status == 200){   
+    if (response.status == 200) {
       Swal.fire({
         title: "Éxito",
         text: "Los datos fueron guardados correctamente",
         icon: "success",
         confirmButtonText: "Aceptar",
-      });      
+      });
     }
-  })
+  });
 };
 
+function checkedRadioButton(radioButtons) {
+  let selectedValue = null;
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      selectedValue = radioButton.value;
+      break;
+    }
+  }
+
+  if (selectedValue !== null) {
+    console.log("Radio button seleccionado:", selectedValue);
+  } else {
+    console.log("Ningún radio button seleccionado");
+  }
+  return selectedValue;
+}
+
+function checkedCheckoxes(checkboxes) {
+  let selectedValues = [];
+  for (const checkbox of checkboxes) {
+    if (checkbox.checked) {
+      selectedValues.push(checkbox.value);
+    }
+  }
+  
+  if (selectedValues.length > 0) {
+    console.log("Checkboxes marcados:", selectedValues);
+  } else {
+    console.log("Ningún checkbox marcado");
+  }
+  return selectedValues;
+}
 cargarDetalles();
 
 // function selectItem3(event) {
