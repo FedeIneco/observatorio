@@ -276,6 +276,11 @@ select {
   --tabs-position: 8;
 }
 
+#tab10 > a {
+  --tabs-position: 9;
+}
+
+
 .tabs {
   display: flex;
   flex-wrap: wrap;

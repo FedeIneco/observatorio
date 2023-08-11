@@ -38,11 +38,11 @@ app.get("/getDetails/:id", async (request, response) => {
 
 //Update
 app.patch('/update', async (request, response) => {
-  const { id, status } = request.body;
+  const { id, sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra } = request.body;
   const db = dbService.getDbServiceInstance();
 
   try {
-    const result = await db.updateById(id, status);
+    const result = await db.updateById(id, sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra);
     response.json({ data: result });
   } catch (error) {
     console.log(error);

@@ -105,12 +105,12 @@ class DbService {
     }
   }
   
-  async updateById(id, status) {
+  async updateById(id, sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra) {
     try {
       id = parseInt(id, 10);
       const response = await new Promise((resolve, reject) => {
-        const query = "UPDATE observatorio SET status = ? WHERE id = ?";
-        connection.query(query, [status, id], (err, result) => {
+        const query = "UPDATE extra SET sector = ?, fase = ?, alcanceContrato = ?, tipoObra = ?, tipoContrato = ?, comunidadAutonoma = ?, tipoAdministracion = ?, ministerio = ?, categoriaEdif = ?, categoriaInfra = ? WHERE idLicit = ?";
+        connection.query(query, [sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra, id], (err, result) => {
           if (err) reject(new Error(err.message));
           resolve(result);
         });

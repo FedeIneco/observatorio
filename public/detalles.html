@@ -5,91 +5,28 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon" />		
 	<link rel="stylesheet" href="css/styles.css" />
 	<title>Detalles</title>
 </head>
 
 <body>
-	<!-- <div class="modal-overlay">
-                <div class="modal-container">
-                        <div class="tabs">
-                                <div class="tab-container">
-                                        <div id="tab5" class="tab">
-                                                <a href="#tab5">Pestaña 1</a>
-                                                <div class="tab-content">
-                                                        <div class="flexOverlay">
-                                                                <h2>Selecciona una opción para prueba1:</h2>
-                                                                <ul id="dropdownList" class="dropdown-list">
-                                                                        {{ dropdown_html }}
-                                                                </ul>
-                                                                <button onclick="acceptSelection()">Aceptar</button>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div id="tab6" class="tab">
-                                                <a href="#tab6">Pestaña 2</a>
-                                                <div class="tab-content">
-                                                        <div class="flexOverlay">
-                                                                <h2>Selecciona una opción para prueba2:</h2>
-                                                                <ul id="dropdownList2" class="dropdown-list">
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem2(event)">
-                                                                                Pestaña 2</li>
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem2(event)">
-                                                                                Pestaña 2</li>
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem2(event)">
-                                                                                Pestaña 2</li>
-                                                                </ul>
-                                                                <button onclick="acceptSelection()">Aceptar</button>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                        <div id="tab7" class="tab">
-                                                <a href="#tab7">Pestaña 3</a>
-                                                <div class="tab-content">
-                                                        <div class="flexOverlay">
-                                                                <h2>Selecciona una opción para prueba3:</h2>
-                                                                <ul id="dropdownList3" class="dropdown-list">
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem3(event)">
-                                                                                Pestaña 3</li>
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem3(event)">
-                                                                                Pestaña 3</li>
-                                                                        <li class="dropdown-item"
-                                                                                onclick="selectItem3(event)">
-                                                                                Pestaña 3</li>
-                                                                </ul>
-                                                                <button onclick="acceptSelection()">Aceptar</button>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </div> -->
 	<div class="title">
 		<h1>Detalles Licitación</h1>
 		<div id="inicio">
-			<a href="listado.html"><i class="fa-solid fa-house"></i>Volver al listado</a>
+			<a href="listado.html">Volver al listado</a>
 		</div>
 	</div>
 
 	<div class="mainContainer">
 		<div class="dato" id="doubleData">
 			<div id="idLicContainer">
-				<h4>Id</h4>
+				<h5>Id</h5>
 				<div id="idLicitacion"></div>
 			</div>
 
 			<div id="bimContainer" class="doubleData">
-				<h4>Revisión BIM</h4>
+				<h5>Revisión BIM</h5>
 				<div id="bim" class="info">
 					<p>
 						<input type="radio" name="bim" id="bimSi" value="Sí" /><label for="bimSi">Sí</label>
@@ -101,13 +38,13 @@
 			</div>
 		</div>
 		<div class="dato">
-			<h4>TITULO</h4>
+			<h5>TITULO</h5>
 			<div class="info" id="tituloLicitacion">
 				<p></p>
 			</div>
 		</div>
 		<div class="dato">
-			<h4>SECTOR</h4>
+			<h5>SECTOR</h5>
 			<div class="info" id="sectorLicitacion">
 				<p>
 					<input type="radio" name="sectorLicitacion" id="edificacion" value="Edificación" />
@@ -120,7 +57,7 @@
 			</div>
 		</div>
 		<div class="dato">
-			<h4>FASE</h4>
+			<h5>FASE</h5>
 			<div class="info">
 				<p>
 					<input type="checkbox" name="faseConsultoriaEstudios" id="consultoriaEstudios"
@@ -143,7 +80,7 @@
 			</div>
 		</div>
 		<div class="dato">
-			<h4>ALCANCE DEL CONTRATO</h4>
+			<h5>ALCANCE DEL CONTRATO</h5>
 			<div class="info">
 				<p>
 					<input type="checkbox" name="contratoImplantacion" id="implantacion" value="Implantación" /><label
@@ -174,7 +111,7 @@
 			</div>
 		</div>
 		<div class="dato">
-			<h4>TIPO</h4>
+			<h5>TIPO</h5>
 			<div class="info" id="tipoLicitacion">
 				<p>
 					<input type="radio" name="tipoLicitacion" id="obraNueva" value="OBRA NUEVA" />
@@ -188,7 +125,7 @@
 		</div>
 
 		<div class="dato">
-			<h4>TIPO DE CONTRATO</h4>
+			<h5>TIPO DE CONTRATO</h5>
 			<div class="info" id="contratos">
 				<p>
 					<input type="radio" name="tipoContrato" id="concesionObras" value="Concesión de Obras" /><label
@@ -221,92 +158,138 @@
 				</p>
 			</div>
 		</div>
-
-		<!-- <table border="1">
-                        <tr>
-                                <th>Encabezado 1</th>
-                                <th>Encabezado 2</th>
-                                <th>Encabezado 3</th>
-                                <th>Encabezado 4</th>
-                        </tr>
-                        {% for row in data %}
-                        <tr>
-                                <td>{{ row.columna1 }}</td>
-                                <td>{{ row.columna2 }}</td>
-                                <td>{{ row.columna3 }}</td>
-                                <td>{{ row.columna4 }}</td>
-                        </tr>
-                        {% endfor %}
-                </table> -->
 	</div>
 	<div class="tabs">
 		<div class="tab-container">
+			<div id="tab10" class="tab">
+				<a href="#tab10">Calidad</a>
+				<div class="tab-content">
+					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosInformacion"
+							id="requisitosInformacion" value="estándares"><label for="requisitosInformacion">CONTROL
+							CALIDAD</label></p>
+				</div>
+			</div>
 			<div id="tab9" class="tab">
-				<a href="#tab9">CALIDAD</a>
+				<a href="#tab9">Estándares</a>
 				<div class="tab-content">
 					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosInformacion"
-						id="requisitosInformacion" value="estándares"><label for="requisitosInformacion">CONTROL CALIDAD</label></p>
+							id="requisitosInformacion" value="estándares"><label
+							for="requisitosInformacion">ESTÁNDARES</label></p>
+					<div class="horizontalContainer">
+						<span>ESTÁNDARES DE REFERENCIA</span>
+						<div class="info" style="height: 300px;">
+							<p><input type="checkbox" name="estandar-ISO-12006" value="ISO 12006" id="ISO-12006"><label
+									for="ISO-12006">ISO 12006</label></p>
+							<p><input type="checkbox" name="estandar-ISO-22274" value="ISO 22274" id="ISO-22274"><label
+									for="ISO-22274">ISO 22274</label></p>
+							<p><input type="checkbox" name="estandar-UNE-EN-ISO-81346" value="UNE-EN ISO 81346"
+									id="UNE-EN-ISO-81346"><label for="UNE-EN-ISO-81346">UNE-EN ISO 81346</label></p>
+							<p><input type="checkbox" name="estandar-UNE-EN-ISO-81346" value="UNE-EN ISO 81346"
+									id="UNE-EN-ISO-81346"><label for="UNE-EN-ISO-81346">UNE-EN ISO 81346</label></p>
+							<p><input type="checkbox" name="estandar-UNE-EN-ISO-19650" value="UNE-EN ISO 19650"
+									id="UNE-EN-ISO-19650"><label for="UNE-EN-ISO-19650">UNE-EN ISO 19650</label></p>
+							<p><input type="checkbox" name="estandar-UNE-EN-ISO-19650" value="UNE-EN ISO 19650"
+									id="UNE-EN-ISO-19650"><label for="UNE-EN-ISO-19650">UNE-EN ISO 19650</label></p>
+							<p><input type="checkbox" name="estandar-BS-8541" value="BS 8541" id="BS-8541"><label
+									for="BS-8541">BS 8541</label></p>
+							<p><input type="checkbox" name="estandar-PAS-1192" value="PAS 1192" id="PAS-1192"><label
+									for="PAS-1192">PAS 1192</label></p>
+							<p><input type="checkbox" name="estandar-BS1192" value="BS1192" id="BS1192"><label
+									for="BS1192">BS1192</label></p>
+							<p><input type="checkbox" name="estandar-Otras" value="Otras" id="otras"><label
+									for="otras">Otras</label></p>
+						</div>
 					</div>
-					</div>
+				</div>
+			</div>
 			<div id="tab8" class="tab">
-				<a href="#tab8">Estándares</a>
+				<a href="#tab8">CDE</a>
 				<div class="tab-content">
-					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosInformacion"
-						id="requisitosInformacion" value="estándares"><label for="requisitosInformacion">ESTÁNDARES</label></p>
+					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosColaboracion"
+							id="requisitosColaboracion" value="colaboracion"><label
+							for="requisitosColaboracion">REQUISITOS COLABORACIÓN SI/NO</label></p>
+					<div class="tab-content-grid" style="margin-top: 1rem;">
 						<div class="horizontalContainer">
-							<span>ESTÁNDARES DE REFERENCIA</span>
-							<div class="info" style="height: 300px;">
-								<p><input type="checkbox" name="estandar-ISO-12006" value="ISO 12006" id="ISO-12006"><label for="ISO-12006">ISO 12006</label></p>
-								<p><input type="checkbox" name="estandar-ISO-22274" value="ISO 22274" id="ISO-22274"><label for="ISO-22274">ISO 22274</label></p>
-								<p><input type="checkbox" name="estandar-UNE-EN-ISO-81346" value="UNE-EN ISO 81346" id="UNE-EN-ISO-81346"><label for="UNE-EN-ISO-81346">UNE-EN ISO 81346</label></p>
-								<p><input type="checkbox" name="estandar-UNE-EN-ISO-81346" value="UNE-EN ISO 81346" id="UNE-EN-ISO-81346"><label for="UNE-EN-ISO-81346">UNE-EN ISO 81346</label></p>
-								<p><input type="checkbox" name="estandar-UNE-EN-ISO-19650" value="UNE-EN ISO 19650" id="UNE-EN-ISO-19650"><label for="UNE-EN-ISO-19650">UNE-EN ISO 19650</label></p>
-								<p><input type="checkbox" name="estandar-UNE-EN-ISO-19650" value="UNE-EN ISO 19650" id="UNE-EN-ISO-19650"><label for="UNE-EN-ISO-19650">UNE-EN ISO 19650</label></p>
-								<p><input type="checkbox" name="estandar-BS-8541" value="BS 8541" id="BS-8541"><label for="BS-8541">BS 8541</label></p>
-								<p><input type="checkbox" name="estandar-PAS-1192" value="PAS 1192" id="PAS-1192"><label for="PAS-1192">PAS 1192</label></p>
-								<p><input type="checkbox" name="estandar-BS1192" value="BS1192" id="BS1192"><label for="BS1192">BS1192</label></p>
-								<p><input type="checkbox" name="estandar-Otras" value="Otras" id="otras"><label for="otras">Otras</label></p>
+							<span>CDE APORTADOS POR EL CLIENTE</span>
+							<div class="info">
+								<p><input type="radio" name="colaboracion" value="FTP" id="ftp"><label
+										for="ftp">FTP</label></p>
+								<p><input type="radio" name="colaboracion" value="Google Drive" id="googleDrive"><label
+										for="googleDrive">Google Drive</label></p>
+								<p><input type="radio" name="colaboracion" value="Dropxbox" id="dropbox"><label
+										for="dropbox">Dropxbox</label></p>
+								<p><input type="radio" name="colaboracion" value="SharePoint" id="sharePoint"><label
+										for="sharePoint">SharePoint</label></p>
+								<p><input type="radio" name="colaboracion" value="Autodesk BIM 360" id="autodesk"><label
+										for="autodesk">Autodesk BIM 360</label></p>
+								<p><input type="radio" name="colaboracion" value="Trimble Connect"
+										id="trimbleConnect"><label for="trimbleConnect">Trimble Connect</label></p>
+								<p><input type="radio" name="colaboracion" value="Eplass" id="Eplass"><label
+										for="Eplass">Eplass</label></p>
+								<p><input type="radio" name="colaboracion" value="Viewpoint" id="viewpoint"><label
+										for="viewpoint">Viewpoint</label></p>
+								<p><input type="radio" name="colaboracion" value="Aconex" id="aconex"><label
+										for="aconex">Aconex</label></p>
+								<p><input type="radio" name="colaboracion" value="ProjectWise" id="projectWise"><label
+										for="projectWise">ProjectWise</label></p>
+								<p><input type="radio" name="colaboracion" value="usBIMplatform"
+										id="usBIMplatform"><label for="usBIMplatform">usBIMplatform</label></p>
+								<p><input type="radio" name="colaboracion" value="Otros" id="otros"><label
+										for="otros">Otros</label></p>
 							</div>
 						</div>
+					</div>
 				</div>
-			</div>					
+			</div>
 			<div id="tab7" class="tab">
 				<a href="#tab7">Clasificación</a>
 				<div class="tab-content">
 					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosInformacion"
-						id="requisitosInformacion" value="requisitosInformacion"><label for="requisitosInformacion">CLASIFICACIÓN SI/NO</label></p>
+							id="requisitosInformacion" value="requisitosInformacion"><label
+							for="requisitosInformacion">CLASIFICACIÓN SI/NO</label></p>
 
-						<div class="horizontalContainer">
-							<span>SISTEMA CLASIFICACIÓN REQUERIDO</span>
-							<div class="info" style="height: 300px;">
-								<p><input type="radio" name="clasificacion" value="Propia" id="propia"><label for="propia">Propia</label></p>
-								<p><input type="radio" name="clasificacion" value="guBIMclass" id="GuBIMclass"><label for="guBIMclass">GuBIMclass</label></p>
-								<p><input type="radio" name="clasificacion" value="Uniclass" id="uniclass"><label for="uniclass">Uniclass</label></p>
-								<p><input type="radio" name="clasificacion" value="Masterformat" id="masterformat"><label for="masterformat">Masterformat</label></p>
-								<p><input type="radio" name="clasificacion" value="Uniformat" id="uniformat"><label for="uniformat">Uniformat</label></p>
-								<p><input type="radio" name="clasificacion" value="Omniclass" id="omniclass"><label for="omniclass">Omniclass</label></p>
-								<p><input type="radio" name="clasificacion" value="Coclass/Cuneco" id="coclass/Cuneco"><label for="coclass/Cuneco">Coclass/Cuneco(CCS)</label></p>
-								<p><input type="radio" name="clasificacion" value="RIH" id="RIH"><label for="RIH">RIH</label></p>
-								<p><input type="radio" name="clasificacion" value="Otras" id="otras"><label for="otras">Otras</label></p>
-								<p><input type="radio" name="clasificacion" value="No definida" id="noDef"><label for="noDef">No definida</label></p>
+					<div class="horizontalContainer">
+						<span>SISTEMA CLASIFICACIÓN REQUERIDO</span>
+						<div class="info" style="height: 300px;">
+							<p><input type="radio" name="clasificacion" value="Propia" id="propia"><label
+									for="propia">Propia</label></p>
+							<p><input type="radio" name="clasificacion" value="guBIMclass" id="GuBIMclass"><label
+									for="guBIMclass">GuBIMclass</label></p>
+							<p><input type="radio" name="clasificacion" value="Uniclass" id="uniclass"><label
+									for="uniclass">Uniclass</label></p>
+							<p><input type="radio" name="clasificacion" value="Masterformat" id="masterformat"><label
+									for="masterformat">Masterformat</label></p>
+							<p><input type="radio" name="clasificacion" value="Uniformat" id="uniformat"><label
+									for="uniformat">Uniformat</label></p>
+							<p><input type="radio" name="clasificacion" value="Omniclass" id="omniclass"><label
+									for="omniclass">Omniclass</label></p>
+							<p><input type="radio" name="clasificacion" value="Coclass/Cuneco"
+									id="coclass/Cuneco"><label for="coclass/Cuneco">Coclass/Cuneco(CCS)</label></p>
+							<p><input type="radio" name="clasificacion" value="RIH" id="RIH"><label
+									for="RIH">RIH</label></p>
+							<p><input type="radio" name="clasificacion" value="Otras" id="otras"><label
+									for="otras">Otras</label></p>
+							<p><input type="radio" name="clasificacion" value="No definida" id="noDef"><label
+									for="noDef">No definida</label></p>
 
-							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 			<div id="tab6" class="tab">
 				<a href="#tab6">Requisitos</a>
 				<div class="tab-content">
 					<p><input style="margin-right: .5rem;" type="checkbox" name="requisitosInformacion"
-						id="requisitosInformacion" value="requisitosInformacion"><label for="requisitosInformacion">REQUISITOS DE INFORMACIÓN</label></p>
-						<div class="tab-content-grid" style="margin-top: 1rem;">
-							<div class="datosIzq grafica">
-								<p>INFORMACIÓN GRÁFICA</p>
-							</div>
-							<div class="datosDch noGrafica">
-								<p>INFORMACIÓN NO GRÁFICA</p>
-							</div>
+							id="requisitosInformacion" value="requisitosInformacion"><label
+							for="requisitosInformacion">REQUISITOS DE INFORMACIÓN</label></p>
+					<div class="tab-content-grid" style="margin-top: 1rem;">
+						<div class="datosIzq grafica">
+							<p>INFORMACIÓN GRÁFICA</p>
 						</div>
+						<div class="datosDch noGrafica">
+							<p>INFORMACIÓN NO GRÁFICA</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="tab5" class="tab">
@@ -379,27 +362,25 @@
 						</div>
 						<div>
 							<p><input style="margin-right: .5rem;" type="checkbox" name="formatosAbiertos"
-								id="formatosAbiertos" value="Si"><label for="formatosAbiertos">USO FORMATOS ABIERTOS SI/NO</label></p>
-								<div class="horizontalContainer" style="gap: 0;">
-									<span>ESTÁNDARES ABIERTOS REQUERIDOS</span>
-									<div class="info">
-										<p>
-											<input type="checkbox" name="estandares-IFC"
-												id="IFC" value="IFC" /><label
-												for="IFC">IFC</label>
-										</p>
-										<p>
-											<input type="checkbox" name="estandares-BCF"
-												id="BCF" value="BCF" /><label
-												for="BCF">BCF</label>
-										</p>
-										<p>
-											<input type="checkbox" name="estandares-COBIE"
-												id="COBIE" value="COBIE" /><label
-												for="COBIE">COBIE</label>
-										</p>																			
-									</div>
+									id="formatosAbiertos" value="Si"><label for="formatosAbiertos">USO FORMATOS ABIERTOS
+									SI/NO</label></p>
+							<div class="horizontalContainer" style="gap: 0;">
+								<span>ESTÁNDARES ABIERTOS REQUERIDOS</span>
+								<div class="info">
+									<p>
+										<input type="checkbox" name="estandares-IFC" id="IFC" value="IFC" /><label
+											for="IFC">IFC</label>
+									</p>
+									<p>
+										<input type="checkbox" name="estandares-BCF" id="BCF" value="BCF" /><label
+											for="BCF">BCF</label>
+									</p>
+									<p>
+										<input type="checkbox" name="estandares-COBIE" id="COBIE" value="COBIE" /><label
+											for="COBIE">COBIE</label>
+									</p>
 								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -876,7 +857,7 @@
                                                                                 Asuntos
                                                                                 Exteriores, Unión Europea y
                                                                                 Cooperación"
-										id="mAExterioresUECoop" /><label for="mAExterioresUECoop">Ministerio de
+										id="mAExterioresUE" /><label for="mAExterioresUE">Ministerio de
 										Asuntos Exteriores, Unión Europea y
 										Cooperación</label>
 								</p>
@@ -958,7 +939,7 @@
 								<p>
 									<input type="radio" name="ministerios" value="Ministerio de Asuntos Económicos
                                                                                 y Transformación Digital"
-										id="" /><label for="">Ministerio de
+										id="maetd" /><label for="maetd">Ministerio de
 										Asuntos Económicos y Transformación
 										Digital</label>
 								</p>
@@ -1003,7 +984,7 @@
 								</p>
 							</div>
 						</div>
-					</div>					
+					</div>
 				</div>
 			</div>
 		</div>

@@ -20,8 +20,6 @@ async function cargarDetalles() {
   const referencia = document.getElementById("referencia");
   const promotor = document.getElementById("promotor");
   const contratos = document.getElementsByName("tipoContrato");
-  const bimSi = document.getElementById("bimSi");
-  const bimNo = document.getElementById("bimNo");
   const sinIva = document.getElementById("sinIva");
   const linkLic = document.getElementById("linkLic");
   const saveButton = document.getElementById("saveButton");
@@ -87,29 +85,36 @@ saveButton.onclick = function () {
   const fase = document.querySelectorAll('input[type="checkbox"][name^="fase"]');
   const alcanceContrato = document.querySelectorAll('input[type="checkbox"][name^="contrato"]');
   
-  
+  const dataSector = checkedRadioButton(sectorLicitacion);
+  const dataFase = checkedCheckoxes(fase);
+  const dataAlcanceContrato = checkedCheckoxes(alcanceContrato);
+  const dataTipoObra = checkedRadioButton(tipoLicitacion);
+  const dataTipoContrato = checkedRadioButton(tipoContrato);
+  const dataCcaa = checkedRadioButton(ccaa);
+  const dataAdmon = checkedRadioButton(admon);
+  const dataMinisterios = checkedRadioButton(ministerios);
+  const dataEdif = checkedRadioButton(categoriaEdif);
+  const dataInfra = checkedRadioButton(infra);
   console.log(checkedRadioButton(bim));
-  console.log(checkedRadioButton(sectorLicitacion));
-  console.log(checkedRadioButton(tipoLicitacion));
-  console.log(checkedRadioButton(tipoContrato));
-  console.log(checkedRadioButton(ccaa));
-  console.log(checkedRadioButton(admon));
-  console.log(checkedRadioButton(ministerios));
-  console.log(checkedRadioButton(categoriaEdif));
-  console.log(checkedRadioButton(infra));
-  console.log(checkedCheckoxes(fase));
-  console.log(checkedCheckoxes(alcanceContrato));
   
-
-
   fetch("http://localhost:5000/update", {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
     },
+    //*sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra
     body: JSON.stringify({
       id: saveButton.dataset.id,
-      status: estado,
+      sector: dataSector,
+      fase : JSON.stringify(dataFase),
+      alcanceContrato : JSON.stringify(dataAlcanceContrato),
+      tipoObra: dataTipoObra,
+      tipoContrato: dataTipoContrato,
+      comunidadAutonoma: dataCcaa,
+      tipoAdministracion : dataAdmon,
+      ministerio : dataMinisterios,
+      categoriaEdif : dataEdif,
+      categoriaInfra : dataInfra
     }),
   }).then((response) => {
     response.json();
