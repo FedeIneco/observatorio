@@ -105,65 +105,9 @@ li {
   gap: 1rem;
 }
 
-/* .etiquetas p{
-  font-size: 1rem;
-  padding: .2rem;
-} */
 .aRellenar input,
 select {
   width: 250px;
-}
-
-.main .flexOverlay {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Ajusta el valor de transparencia (0.5) según tus necesidades */
-  backdrop-filter: blur(
-    5px
-  ); /* Ajusta el valor de desenfoque (5px) según tus necesidades */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Estilos para la ventana emergente */
-.modal-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-/* Estilos para la lista desplegable */
-.dropdown-list {
-  width: 200px;
-}
-
-.dropdown-item {
-  padding: 8px;
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  background-color: #eee; /* Ajusta el color de fondo al pasar el cursor sobre un elemento */
-}
-
-.dropdown-item.selected {
-  background-color: #3e83ff; /* Ajusta el color de fondo para el elemento seleccionado */
-  color: white;
 }
 
 .mainContainer {
@@ -440,33 +384,6 @@ select {
 
 #tab2 .info {
   height: 150px;
-}
-
-.screenSelector {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.screenSelector button {
-  margin: 0 0.5rem;
-}
-
-/* Estilos para las pantallas */
-.screen {
-  display: none;
-}
-
-.active {
-  display: block;
-}
-
-.modal-container .tab a {
-  margin-left: -30rem;
-}
-
-.modal-container .tab .tab-content {
-  height: 300px;
 }
 
 table {
