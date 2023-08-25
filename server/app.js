@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const app = express();
 const dbService = require("./dbService");
-const { response } = require("express");
+
 dotenv.config();
 app.use(cors());
 app.use(express.json());
@@ -61,16 +61,90 @@ app.delete('/delete/:id', async (request, response) => {
     .catch((err) => console.log(err));
 })
 
+// //Filter
+// app.get('/filter', async (request, response) => {
+//   const { 
+//     tipoContrato,
+//     cpv,
+//     orgContratante,
+//     ccaa,
+//     fechaMinima,
+//     fechaMaxima,
+//     pbMin,
+//     pbMax,
+//     valorMax,
+//     valorMin, } = request.query;
+//     const db = dbService.getDbServiceInstance();
+//   try {
+//     const filters = {
+//       tipoContrato: tipoContrato || undefined,
+//       cpv: cpv || undefined,
+//       orgContratante: orgContratante || undefined,
+//       ccaa: ccaa || undefined,
+//       fechaMinima: fechaMinima || undefined,
+//       fechaMaxima: fechaMaxima || undefined,
+//       pbMin: pbMin ? parseFloat(rangoMin) : undefined,
+//       pbMax: pbMax ? parseFloat(rangoMax) : undefined,
+//       valorMax: valorMax ? parseFloat(rangoMin) : undefined,
+//       valorMin: valorMin ? parseFloat(rangoMax) : undefined
+//     };
+
+//     const result = await db.filter(filters);
+//     response.json({ data: result });
+//   } catch (error) {
+//     console.log(error);
+//     response.status(500).json({ message: "Error en el servidor al buscar los registros." });
+//   }
+// });
+
+app.get('/filter', async (request, response) => {
+  const {
+    tipoContrato,
+    cpv, // Cambiado para coincidir con el parámetro en la URL
+    orgContratante,
+    ccaa,
+    fechaMinima,
+    fechaMaxima,
+    pbMin,
+    pbMax,
+    valorMax,
+    valorMin,
+  } = request.query; // Cambiado para capturar parámetros de búsqueda
+
+  const db = dbService.getDbServiceInstance();
+
+  try {
+    const result = await db.filter({
+      tipoContrato,
+      cpv,
+      orgContratante,
+      ccaa,
+      fechaMinima,
+      fechaMaxima,
+      pbMin,
+      pbMax,
+      valorMax,
+      valorMin,
+    }); 
+    response.json({ data: result });
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: "Error en el servidor al buscar los registros." });
+  }
+});
+
 
 //Search
 app.get('/search/:orgc', (request, response) => {
   const { orgc } = request.params;
   const db = dbService.getDbServiceInstance();
 
-  const result = db.searchByOrgc(orgc);
+  const result =  db.searchByOrgc(orgc);
   result
     .then((data) => response.json({ data: data }))
     .catch((err) => console.log(err));
 })
+
+
 
 app.listen(process.env.PORT, () => console.log("app is running"));

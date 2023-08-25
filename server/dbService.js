@@ -37,7 +37,7 @@ class DbService {
           if (err) reject(new Error(err.message));
           resolve(results);
         });
-      });      
+      });
       return response;
     } catch (error) {
       console.log(error);
@@ -63,57 +63,87 @@ class DbService {
   async deleteRowById(id) {
     try {
       id = parseInt(id, 10);
-  
+
       const response = await new Promise((resolve, reject) => {
         connection.beginTransaction((err) => {
           if (err) reject(new Error(err.message));
-  
+
           const deleteQueryCpv = "DELETE FROM cpv WHERE id_observatorio = ?";
-          const deleteQueryObservatorio = "DELETE FROM observatorio WHERE id = ?";
-  
+          const deleteQueryObservatorio =
+            "DELETE FROM observatorio WHERE id = ?";
+
           connection.query(deleteQueryCpv, [id], (err, result) => {
             if (err) {
               connection.rollback(() => {
                 reject(new Error(err.message));
               });
             }
-  
+
             connection.query(deleteQueryObservatorio, [id], (err, result) => {
               if (err) {
                 connection.rollback(() => {
                   reject(new Error(err.message));
                 });
               }
-  
+
               connection.commit((err) => {
                 if (err) {
                   connection.rollback(() => {
                     reject(new Error(err.message));
                   });
                 }
-  
+
                 resolve(result);
               });
             });
           });
         });
-      });      
+      });
       return response.affectedRows === 1 ? true : false;
     } catch (error) {
       console.log(error);
       return false;
     }
   }
-  
-  async updateById(id, sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra) {
+
+  async updateById(
+    id,
+    sector,
+    fase,
+    alcanceContrato,
+    tipoObra,
+    tipoContrato,
+    comunidadAutonoma,
+    tipoAdministracion,
+    ministerio,
+    categoriaEdif,
+    categoriaInfra
+  ) {
     try {
       id = parseInt(id, 10);
       const response = await new Promise((resolve, reject) => {
-        const query = "UPDATE extra SET sector = ?, fase = ?, alcanceContrato = ?, tipoObra = ?, tipoContrato = ?, comunidadAutonoma = ?, tipoAdministracion = ?, ministerio = ?, categoriaEdif = ?, categoriaInfra = ? WHERE idLicit = ?";
-        connection.query(query, [sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra, id], (err, result) => {
-          if (err) reject(new Error(err.message));
-          resolve(result);
-        });
+        const query =
+          "UPDATE extra SET sector = ?, fase = ?, alcanceContrato = ?, tipoObra = ?, tipoContrato = ?, comunidadAutonoma = ?, tipoAdministracion = ?, ministerio = ?, categoriaEdif = ?, categoriaInfra = ? WHERE idLicit = ?";
+        connection.query(
+          query,
+          [
+            sector,
+            fase,
+            alcanceContrato,
+            tipoObra,
+            tipoContrato,
+            comunidadAutonoma,
+            tipoAdministracion,
+            ministerio,
+            categoriaEdif,
+            categoriaInfra,
+            id,
+          ],
+          (err, result) => {
+            if (err) reject(new Error(err.message));
+            resolve(result);
+          }
+        );
       });
       return { success: true, data: response };
     } catch (error) {
@@ -121,19 +151,96 @@ class DbService {
       return false;
     }
   }
-  async searchByOrgc(name){
+  async searchByOrgc(name) {
     const response = await new Promise((resolve, reject) => {
-        const query =
-          "SELECT * FROM `observatorio`  WHERE organoContratacion LIKE CONCAT('%', ?, '%') ORDER BY `fechaExtraccion` DESC";
-        connection.query(query, [name], (err, results) => {            
-          if (err) reject(new Error(err.message));
-          resolve(results);
-        });
+      const query =
+        "SELECT * FROM `observatorio`  WHERE organoContratacion LIKE CONCAT('%', ?, '%') ORDER BY `fechaExtraccion` DESC";
+      connection.query(query, [name], (err, results) => {
+        if (err) reject(new Error(err.message));
+        resolve(results);
       });
-      return response;
+    });
+    return response;
+  }
+  catch(error) {
+    console.log(error);
+  }
+  async filter(
+ filters, limit, offset) {
+    try {
+      const {
+        tipoContrato,
+        cpv,
+        orgContratante,
+        ccaa,
+        fechaMinima,
+        fechaMaxima,
+        pbMin,
+        pbMax,
+        valorMax,
+        valorMin,
+      } = filters;
+      const queryParams = [];
+      let queryCondition = "";
+      let joinClauses = '';
+
+      if (tipoContrato) {
+        queryCondition += "o.tipoContrato LIKE = ? AND ";
+        queryParams.push(tipoContrato);
+      }
+      if (orgContratante) {
+        queryCondition += "o.organoContratacion LIKE CONCAT('%', ?, '%') AND ";
+        queryParams.push(orgContratante);
+      }
+
+      if (fechaMinima && fechaMaxima) {
+        queryCondition += "o.PrimeraPublicacion BETWEEN ? AND ? AND ";
+        queryParams.push(fechaMinima, fechaMaxima);
+      }
+
+      if (pbMin && pbMax) {
+        queryCondition += "o.presupuestoTax BETWEEN ? AND ? AND ";
+        queryParams.push(pbMin, pbMax);
+      }
+
+      if (valorMin && valorMax) {
+        queryCondition += "o.	valorEstimadoContrato BETWEEN ? AND ? AND ";
+        queryParams.push(valorMin, valorMax);
+      }
+
+      if (ccaa) {
+        joinClauses += "JOIN extra te ON o.id = te.idLicit";
+        queryCondition += "te.comunidadAutonoma = ? AND ";
+        queryParams.push(ccaa);
+      }
+      if (cpv) {
+        joinClauses += "JOIN cpv tc ON o.id = tc.id_observatorio";
+        queryCondition += "tc.cpv_value = ? AND ";
+        queryParams.push(cpv);
+      }     
+
+      if (!tipoContrato && !orgContratante && !ccaa && !cpv && !fechaMinima && !fechaMaxima && !pbMin && !pbMax && !valorMin && !valorMax) {
+        queryCondition = "1"; // Condición siempre verdadera para seleccionar todo
+    } else {
+        queryCondition = queryCondition.slice(0, -5); // Recorta la última parte de la condición
+    }
+      const query = `
+      SELECT o.*
+      FROM observatorio o
+      ${joinClauses}
+      WHERE ${queryCondition}      
+    `;
+    const response = await new Promise((resolve, reject) => {
+      connection.query(query, [queryParams, limit, offset], (err, results) => {
+        if (err) reject(new Error(err.message));
+        resolve(results);
+      });
+    });
+console.log(response);
+    return response;
     } catch (error) {
       console.log(error);
+    }
   }
 }
-
 module.exports = DbService;

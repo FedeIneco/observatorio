@@ -102,8 +102,7 @@ saveButton.onclick = function () {
     headers: {
       "Content-type": "application/json",
     },
-    //*sector, fase, alcanceContrato, tipoObra, tipoContrato, comunidadAutonoma, tipoAdministracion, ministerio, categoriaEdif, categoriaInfra
-    body: JSON.stringify({
+      body: JSON.stringify({
       id: saveButton.dataset.id,
       sector: dataSector,
       fase : JSON.stringify(dataFase),

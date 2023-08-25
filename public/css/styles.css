@@ -26,10 +26,10 @@ ul,
 li {
   list-style: none;
 }
-.main{
+.main {
   display: flex;
   flex-direction: column;
-  height:100vh;  
+  height: 100vh;
 }
 
 .title {
@@ -98,16 +98,27 @@ li {
   flex-direction: row;
   gap: 1rem;
 }
-.etiquetas,
-.aRellenar {
+.etiquetas{
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.aRellenar input,
-select {
+.etiquetas div{
+   display: flex;
+   flex-direction: row;
+   gap: 1rem;
+}
+
+.etiqueta{
   width: 250px;
+}
+
+
+.etiquetas input,
+select {
+  width: 300px;
+  padding: .3rem;
 }
 
 .mainContainer {
@@ -159,7 +170,7 @@ select {
   gap: 0.7rem;
 }
 
-.usosBIMContainer{
+.usosBIMContainer {
   margin-top: 1rem;
   width: 600px;
   height: 400px;
@@ -223,7 +234,6 @@ select {
 #tab10 > a {
   --tabs-position: 9;
 }
-
 
 .tabs {
   display: flex;
@@ -378,7 +388,7 @@ select {
   gap: 2rem;
 }
 
-.horizontalContainer span{
+.horizontalContainer span {
   width: 200px;
 }
 
@@ -426,7 +436,6 @@ td {
   margin-left: 2rem;
 }
 
-
 .buttons {
   margin: 0 auto;
   width: 25%;
@@ -440,7 +449,7 @@ td {
 .button {
   cursor: pointer;
   padding: 0.5rem 1rem;
-  background-color:rgb(52, 99, 172);
+  background-color: rgb(52, 99, 172);
   border: 2px solid var(--tabs-border-color);
   box-shadow: 2px 2px var(--tabs-border-color);
   color: white;
@@ -467,9 +476,13 @@ td {
 }
 
 .grafica,
-.noGrafica{
+.noGrafica {
   padding: 1rem;
 }
-.noGrafica{
+.noGrafica {
   border-left: 1px solid #333;
+}
+
+.dobles {
+  width:142px !important;
 }

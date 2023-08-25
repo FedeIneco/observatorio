@@ -2,69 +2,109 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Búsqueda</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="./img/icono-Ineco.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="./css/styles.css" />
+	<title>Búsqueda</title>
 </head>
 
 <body>
-    <div class="title">
-        <h1>Búsqueda</h1>
-    </div>
-    <div class="campos">
-        <div class="datos">
-            <div class="camposIzq">
-                <div class="etiquetas">
-                    <p>Tipo de Contrato:</p>
-                    <p>CPV:</p>
-                    <p>Organización contratante:</p>
-                    <p>Nombre O. Contratación:</p>
-                </div>
-                <div class="aRellenar">
-                    <p><select>
-                            <option value="#">Todos</option>
-                            <option value="Concesión de obras">Concesión de obras</option>
-                            <option value="Concesión de obras públicas">Concesión de obras públicas</option>
-                            <option value="Concesión de servicios">Concesión de servicios</option>
-                            <option value="Obras">Obras</option>
-                            <option value="Otros">Otros</option>
-                            <option value="Servicios">Servicios</option>
-                            <option value="Suministros">Suministros</option>
-                        </select></p>
-                    <p><input type="text"></p>
-                    <p><input type="text"></p>
-                    <p><input type="text"></p>
-                </div>
-            </div>
-            <div class="camposDch">
-                <div class="etiquetas">
-                    <p>Comunidad Autónoma:</p>
-                    <p>Fecha publicación:</p>
-                    <p>Presupuesto base:</p>
-                    <p>Valor estimado de contrato:</p>
-                </div>
-                <div class="aRellenar">
-                    <p><select>
-                            <option value="#">Todos</option>
-                            <option value="Concesión de obras">Concesión de obras</option>
-                            <option value="Concesión de obras públicas">Concesión de obras públicas</option>
-                            <option value="Concesión de servicios">Concesión de servicios</option>
-                            <option value="Obras">Obras</option>
-                            <option value="Otros">Otros</option>
-                            <option value="Servicios">Servicios</option>
-                            <option value="Suministros">Suministros</option>
-                        </select></p>
-                    <p><input type="text"></p>
-                    <p><input type="text"></p>
-                    <p><input type="text"></p>
-                </div>
-            </div>
-        </div>
-        <button class="save">Buscar</button>
-    </div>
+	<div class="title">
+		<h1>Búsqueda</h1>
+	</div>
+	<div class="campos">
+		<form action="POST" id="searchForm">
+			<div class="datos">
+				<div class="camposIzq">
+					<div class="etiquetas">
+						<div>
+							<span class="etiqueta">Tipo de Contrato:</span>
+							<select id="tipoContrato">
+								<option value="#">Todos</option>
+								<option value="Concesión de obras">Concesión de obras</option>
+								<option value="Concesión de obras públicas">
+									Concesión de obras públicas
+								</option>
+								<option value="Concesión de servicios">
+									Concesión de servicios
+								</option>
+								<option value="Obras">Obras</option>
+								<option value="Otros">Otros</option>
+								<option value="Servicios">Servicios</option>
+								<option value="Suministros">Suministros</option>
+							</select>
+						</div>
+						<div><span class="etiqueta">CPV:</span> <input type="number" id="cpv" name="cpv" />
+						</div>
+						<div>
+							<span class="etiqueta">Organización contratante:</span>
+							<input type="text" id="orgContratante" name="orgContratante" />
+						</div>
+						<div>
+							<span class="etiqueta">Nombre O. Contratación:</span><input type="text"
+								id="nOrgContratacion" name="nOrgContratacion" />
+						</div>
+					</div>
+				</div>
+				<div class="camposDch">
+					<div class="etiquetas">
+						<div id="ccaaFiltro">
+							<span class="etiqueta">Comunidad Autónoma:</span><select id="comunidadesAutonomasFiltro">
+								<option value="#">Elige una opción</option>
+								<option value="Andalucía">Andalucía</option>
+								<option value="Aragón">Aragón</option>
+								<option value="Principado de Asturias">
+									Principado de Asturias
+								</option>
+								<option value="Islas Baleares">Islas Baleares</option>
+								<option value="Canarias">Canarias</option>
+								<option value="Cantabria">Cantabria</option>
+								<option value="Castilla y León">Castilla y León</option>
+								<option value="Castilla La Mancha">Castilla La Mancha</option>
+								<option value="Cataluña">Cataluña</option>
+								<option value="Comunidad Valenciana">
+									Comunidad Valencianaa
+								</option>
+								<option value="Extremadura">Extremadura</option>
+								<option value="Galicia">Galicia</option>
+								<option value="Comunidad de Madrid">Comunidad de Madrid</option>
+								<option value="Región de Murcia">Región de Murcia</option>
+								<option value="Comunidad floral de Navarra">
+									Comunidad floral de Navarra
+								</option>
+								<option value="País Vasco">País Vasco</option>
+								<option value="La Rioja">La Rioja</option>
+								<option value="Ceuta">Ceuta</option>
+								<option value="Melilla">Melilla</option>
+							</select>
+						</div>
+						<div>
+							<span class="etiqueta">Fecha publicación:</span>
+							<input type="date" class="dobles doblesMargen" id="fechaMinima" /><input type="date"
+								class="dobles" id="fechaMaxima" />
+						</div>
+						<div>
+							<span class="etiqueta">Presupuesto base:</span>
+							<input type="text" class="dobles doblesMargen" placeholder="Valor mínimo €"
+								id="pbMinimo" /><input type="text" class="dobles" placeholder="Valor máximo €"
+								id="pbMaximo" />
+						</div>
+						<div>
+							<span class="etiqueta">Valor estimado de contrato:</span><input type="text"
+								class="dobles doblesMargen" placeholder="Valor mínimo €" id="valorMinimo" />
+							<input type="text" class="dobles" placeholder="Valor máximo €" id="valorMaximo" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<input type="submit" class="save" id="filtrar" value="Buscar">
+		</form>
+	</div>
+
+	<div id="results"></div>
+	<script src="js/index.js"></script>
 </body>
 
 </html>
