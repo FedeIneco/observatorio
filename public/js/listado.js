@@ -100,6 +100,7 @@ function editRowById(id) {
 function deleteRowById(id) {
   Swal.fire({
     title: "¿Deseas borrar los datos?",
+    icon: 'warning',
     showDenyButton: true,
     confirmButtonText: "Sí",
     denyButtonText: `No`,
