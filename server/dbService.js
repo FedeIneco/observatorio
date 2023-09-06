@@ -165,8 +165,7 @@ class DbService {
   catch(error) {
     console.log(error);
   }
-  async filter(
- filters, limit, offset) {
+  async filter(filters, page) {
     try {
       const {
         tipoContrato,
@@ -177,17 +176,21 @@ class DbService {
         fechaMaxima,
         pbMin,
         pbMax,
-        valorMax,
         valorMin,
+        valorMax,
       } = filters;
+      const pageSize = 25;
+      const offset = Math.max(0, (page - 1) * pageSize);
+
       const queryParams = [];
       let queryCondition = "";
-      let joinClauses = '';
+      let joinClauses = "";
 
-      if (tipoContrato) {
-        queryCondition += "o.tipoContrato LIKE = ? AND ";
+      if (tipoContrato != "#") {
+        queryCondition += "o.tipoContrato LIKE ? AND ";
         queryParams.push(tipoContrato);
       }
+
       if (orgContratante) {
         queryCondition += "o.organoContratacion LIKE CONCAT('%', ?, '%') AND ";
         queryParams.push(orgContratante);
@@ -199,7 +202,8 @@ class DbService {
       }
 
       if (pbMin && pbMax) {
-        queryCondition += "o.presupuestoTax BETWEEN ? AND ? AND ";
+        queryCondition +=
+          "o.presupuestoTax BETWEEN ? AND ? AND ";
         queryParams.push(pbMin, pbMax);
       }
 
@@ -208,7 +212,7 @@ class DbService {
         queryParams.push(valorMin, valorMax);
       }
 
-      if (ccaa) {
+      if (ccaa != "#") {
         joinClauses += "JOIN extra te ON o.id = te.idLicit";
         queryCondition += "te.comunidadAutonoma = ? AND ";
         queryParams.push(ccaa);
@@ -217,27 +221,45 @@ class DbService {
         joinClauses += "JOIN cpv tc ON o.id = tc.id_observatorio";
         queryCondition += "tc.cpv_value = ? AND ";
         queryParams.push(cpv);
-      }     
+      }
 
-      if (!tipoContrato && !orgContratante && !ccaa && !cpv && !fechaMinima && !fechaMaxima && !pbMin && !pbMax && !valorMin && !valorMax) {
+      if (
+        tipoContrato != "#" &&
+        !orgContratante &&
+        ccaa != "#" &&
+        !cpv &&
+        !fechaMinima &&
+        !fechaMaxima &&
+        !pbMin &&
+        !pbMax &&
+        !valorMin &&
+        !valorMax
+      ) {
         queryCondition = "1"; // Condición siempre verdadera para seleccionar todo
-    } else {
+      } else {
         queryCondition = queryCondition.slice(0, -5); // Recorta la última parte de la condición
-    }
+      }
       const query = `
       SELECT o.*
       FROM observatorio o
       ${joinClauses}
-      WHERE ${queryCondition}      
+      WHERE ${queryCondition}
+      LIMIT ? OFFSET ?   
     `;
-    const response = await new Promise((resolve, reject) => {
-      connection.query(query, [queryParams, limit, offset], (err, results) => {
-        if (err) reject(new Error(err.message));
-        resolve(results);
+      // console.log(`La query: ${query}`);
+      const response = await new Promise((resolve, reject) => {
+        connection.query(
+          query,
+          [...queryParams, pageSize, offset],
+          (err, results) => {
+            if (err) reject(new Error(err.message));
+            resolve(results);
+            // console.log(results);
+          }
+        );
       });
-    });
-console.log(response);
-    return response;
+      // console.log(response);
+      return response;
     } catch (error) {
       console.log(error);
     }

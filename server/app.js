@@ -10,8 +10,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //GetAllData
-//TODO: Revisar para no perder búsqueda con la paginación
-//TODO: Agregar valor de búsqueda para mantenerlo
 app.get("/getAll", (request, response) => {
   const db = dbService.getDbServiceInstance();
   const page = request.query.page || 1;  
@@ -61,46 +59,11 @@ app.delete('/delete/:id', async (request, response) => {
     .catch((err) => console.log(err));
 })
 
-// //Filter
-// app.get('/filter', async (request, response) => {
-//   const { 
-//     tipoContrato,
-//     cpv,
-//     orgContratante,
-//     ccaa,
-//     fechaMinima,
-//     fechaMaxima,
-//     pbMin,
-//     pbMax,
-//     valorMax,
-//     valorMin, } = request.query;
-//     const db = dbService.getDbServiceInstance();
-//   try {
-//     const filters = {
-//       tipoContrato: tipoContrato || undefined,
-//       cpv: cpv || undefined,
-//       orgContratante: orgContratante || undefined,
-//       ccaa: ccaa || undefined,
-//       fechaMinima: fechaMinima || undefined,
-//       fechaMaxima: fechaMaxima || undefined,
-//       pbMin: pbMin ? parseFloat(rangoMin) : undefined,
-//       pbMax: pbMax ? parseFloat(rangoMax) : undefined,
-//       valorMax: valorMax ? parseFloat(rangoMin) : undefined,
-//       valorMin: valorMin ? parseFloat(rangoMax) : undefined
-//     };
-
-//     const result = await db.filter(filters);
-//     response.json({ data: result });
-//   } catch (error) {
-//     console.log(error);
-//     response.status(500).json({ message: "Error en el servidor al buscar los registros." });
-//   }
-// });
-
-app.get('/filter', async (request, response) => {
+app.get('/filter', async (request, response) => {  
+  const page = request.query.page || 1;
   const {
     tipoContrato,
-    cpv, // Cambiado para coincidir con el parámetro en la URL
+    cpv, 
     orgContratante,
     ccaa,
     fechaMinima,
@@ -109,7 +72,7 @@ app.get('/filter', async (request, response) => {
     pbMax,
     valorMax,
     valorMin,
-  } = request.query; // Cambiado para capturar parámetros de búsqueda
+  } = request.query; 
 
   const db = dbService.getDbServiceInstance();
 
@@ -124,8 +87,8 @@ app.get('/filter', async (request, response) => {
       pbMin,
       pbMax,
       valorMax,
-      valorMin,
-    }); 
+      valorMin,      
+    }, page); 
     response.json({ data: result });
   } catch (error) {
     console.log(error);

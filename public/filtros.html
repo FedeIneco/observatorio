@@ -15,13 +15,13 @@
 		<h1>Búsqueda</h1>
 	</div>
 	<div class="campos">
-		<form action="POST" id="searchForm">
+		<form action="GET" id="searchForm">
 			<div class="datos">
 				<div class="camposIzq">
 					<div class="etiquetas">
 						<div>
 							<span class="etiqueta">Tipo de Contrato:</span>
-							<select id="tipoContrato">
+							<select id="tipoContrato" name="tipoContrato">
 								<option value="#">Todos</option>
 								<option value="Concesión de obras">Concesión de obras</option>
 								<option value="Concesión de obras públicas">
@@ -51,7 +51,7 @@
 				<div class="camposDch">
 					<div class="etiquetas">
 						<div id="ccaaFiltro">
-							<span class="etiqueta">Comunidad Autónoma:</span><select id="comunidadesAutonomasFiltro">
+							<span class="etiqueta">Comunidad Autónoma:</span><select id="comunidadesAutonomasFiltro" name="ccaa">
 								<option value="#">Elige una opción</option>
 								<option value="Andalucía">Andalucía</option>
 								<option value="Aragón">Aragón</option>
@@ -82,19 +82,19 @@
 						</div>
 						<div>
 							<span class="etiqueta">Fecha publicación:</span>
-							<input type="date" class="dobles doblesMargen" id="fechaMinima" /><input type="date"
+							<input type="date" class="dobles doblesMargen" id="fechaMinima"  name="fechaMinima"/><input type="date" name="fechaMaxima"
 								class="dobles" id="fechaMaxima" />
 						</div>
 						<div>
 							<span class="etiqueta">Presupuesto base:</span>
 							<input type="text" class="dobles doblesMargen" placeholder="Valor mínimo €"
-								id="pbMinimo" /><input type="text" class="dobles" placeholder="Valor máximo €"
-								id="pbMaximo" />
+								id="pbMinimo" name="pbMin"/><input type="text" class="dobles" placeholder="Valor máximo €"
+								id="pbMaximo" name="pbMax"/>
 						</div>
 						<div>
 							<span class="etiqueta">Valor estimado de contrato:</span><input type="text"
-								class="dobles doblesMargen" placeholder="Valor mínimo €" id="valorMinimo" />
-							<input type="text" class="dobles" placeholder="Valor máximo €" id="valorMaximo" />
+								class="dobles doblesMargen" placeholder="Valor mínimo €" id="valorMinimo" name="valorMin"/>
+							<input type="text" class="dobles" placeholder="Valor máximo €" id="valorMaximo" name="valorMax" />
 						</div>
 					</div>
 				</div>
@@ -104,6 +104,10 @@
 	</div>
 
 	<div id="results"></div>
+	<div class="buttons">
+        <button class="button" id="prevButton">Anterior</button>
+        <button class="button" id="nextButton">Siguiente</button>
+    </div>
 	<script src="js/index.js"></script>
 </body>
 
